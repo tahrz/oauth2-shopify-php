@@ -1,9 +1,13 @@
-<?php namespace Pizdata\Shopify\OAuth2\Client\Test\Provider;
+<?php
 
-use League\OAuth2\Client\Tool\QueryBuilderTrait;
+namespace Pizdata\Shopify\OAuth2\Client\Test\Provider;
+
 use Mockery as m;
+use PHPUnit_Framework_TestCase;
+use Pizdata\OAuth2\Client\Provider\Shopify;
+use League\OAuth2\Client\Tool\QueryBuilderTrait;
 
-class ShopifyTest extends \PHPUnit_Framework_TestCase
+class ShopifyTest extends PHPUnit_Framework_TestCase
 {
     use QueryBuilderTrait;
 
@@ -11,7 +15,7 @@ class ShopifyTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->provider = new \Pizdata\OAuth2\Client\Provider\Shopify([
+        $this->provider = new Shopify([
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
             'redirectUri' => 'none',
@@ -32,7 +36,7 @@ class ShopifyTest extends \PHPUnit_Framework_TestCase
      */
     public function testNoStoreName()
     {
-        $provider = new \Pizdata\OAuth2\Client\Provider\Shopify([
+        new Shopify([
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
             'redirectUri' => 'none',
@@ -161,7 +165,7 @@ class ShopifyTest extends \PHPUnit_Framework_TestCase
      */
     public function testUserData()
     {
-        $id = rand(1000,9999);
+        $id = rand(1000, 9999);
         $name = uniqid();
         $email = uniqid();
         $postResponse = m::mock('Psr\Http\Message\ResponseInterface');

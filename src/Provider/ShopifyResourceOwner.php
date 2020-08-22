@@ -1,4 +1,6 @@
-<?php namespace Pizdata\OAuth2\Client\Provider;
+<?php
+
+namespace Pizdata\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Tool\ArrayAccessorTrait;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
@@ -19,7 +21,7 @@ class ShopifyResourceOwner implements ResourceOwnerInterface
      *
      * @param array  $response
      */
-    public function __construct(array $response = array())
+    public function __construct(array $response = [])
     {
         $this->response = $response;
     }
